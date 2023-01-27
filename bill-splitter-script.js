@@ -1,4 +1,5 @@
 const adduser = document.getElementById("adduser-btn")
+const removeuser = document.getElementById("removeuser-btn")
 const submit = document.getElementById("calculate")
 const inputDiv = document.getElementById("input-div")
 const expenseDiv = document.getElementById("expense-div")
@@ -43,7 +44,9 @@ function calculate() {
          totalExpense += mainarr[i].expense
       }
       share = Math.round(totalExpense / usercount)
-      result.innerHTML = "Share is " + share
+      const newline = document.createElement("p");
+      resultDiv.appendChild(newline);
+      new.innerHTML = "Share is " + share
       console.log("Share is " + share)
 
       for (i = 0; i < usercount; i++) {
@@ -55,14 +58,11 @@ function calculate() {
                   resultDiv.appendChild(newline);
                   if ((mainarr[j].total + temp) > share) {
                      newline.innerHTML=mainarr[j].name + " Gives " + (share - mainarr[j].total) + " to " + mainarr[i].name
-                     //console.log(mainarr[j].name + " Gives " + (share - mainarr[j].total) + " to " + mainarr[i].name)
                      mainarr[i].total = mainarr[i].total - (share - mainarr[j].total)
                      mainarr[j].total += (share - mainarr[j].total)
                   }
                   else {
                      newline.innerHTML=mainarr[j].name + " Gives " + (temp) + " to " + mainarr[i].name
-                     //result.innerHTML=(mainarr[j].name + " Gives " + (temp) + " to " + mainarr[i].name)
-                     //console.log(mainarr[j].name + " Gives " + (temp) + " to " + mainarr[i].name)
                      mainarr[j].total += (temp)
                      mainarr[i].total = mainarr[i].total - (temp)
                   }
@@ -80,19 +80,21 @@ const buttonPressed = e => {
       isupdate = true
       tempid = e.target.id.replace("user", "")
       mainarr[tempid - 1].name = e.target.value
+      resultDiv.innerHTML= ""
    }
    else if(e.target.id.includes("expense")){
       isupdate = true
       tempid = e.target.id.replace("expense", "")
       mainarr[tempid - 1].expense = parseInt(e.target.value)
+      resultDiv.innerHTML= ""
    }
 }
 
 document.addEventListener("input", e => {
    if (e.target.matches("input"))
-      buttonPressed(e);
+   buttonPressed(e);
 })
-   
+
 function myfunction() {
    isupdate=true
    usercount++
@@ -109,7 +111,23 @@ function myfunction() {
    
    inputDiv.appendChild(newuser);
    expenseDiv.appendChild(newexpense);
+   
+   document.getElementById("usercountdisplay").innerHTML = "Total users are "+usercount
+   resultDiv.innerHTML= ""
+}
+
+function removeuserfn() {
+   if (usercount > 2) {
+      resultDiv.innerHTML= ""
+      isupdate=true
+      document.getElementById("user"+usercount).remove()
+      document.getElementById("expense" + usercount).remove()
+      mainarr.pop()
+      usercount--
+      console.log(mainarr)
+   }
 }
 
 adduser.addEventListener("click", myfunction)
 submit.addEventListener("click", calculate)
+removeuser.addEventListener("click",removeuserfn)
