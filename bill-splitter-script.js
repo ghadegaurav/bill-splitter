@@ -46,7 +46,7 @@ function calculate() {
       share = Math.round(totalExpense / usercount)
       const newline = document.createElement("p");
       resultDiv.appendChild(newline);
-      new.innerHTML = "Share is " + share
+      newline.innerHTML = "Share is " + share
       console.log("Share is " + share)
 
       for (i = 0; i < usercount; i++) {
