@@ -14,19 +14,22 @@
    <button id="adduser-btn">Add User +</button>
    <button id="calculate">calculate</button>
    <button id="removeuser-btn">Remove User</button>
+   <button id="reset-btn">Reset</button>
    <br><br>
    <p id="usercountdisplay">Total users are 2</p>
    <div id="resultdiv">
       <p id="heading3"></p>
    </div>
    <div id="maininputdiv">
-      <div id="input-div">
-         <input type="text" id="user1" placeholder="Type Name of User 1">
-         <input type="text" id="user2" placeholder="Type Name of User 2">
+      <div class="input-div">
+         <input type="text" id="user1" placeholder="Enter Name of User 1">
+         <input type="text" id="user2" placeholder="Enter Name of User 2">
+         <div class="input-div" id="newinput-div"></div>
       </div>
-      <div id="expense-div">
-         <input type="number" id="expense1" placeholder="Enter total indivisual expense">
-         <input type="number" id="expense2" placeholder="Enter total indivisual expense">
+      <div class="expense-div">
+         <input type="number" class="default-expense" id="expense1" placeholder="Enter total individual expense">
+         <input type="number" class="default-expense" id="expense2" placeholder="Enter total individual expense">
+         <div class="expense-div" id="newexpense-div"></div>
       </div>
    </div>
 </body>

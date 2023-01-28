@@ -1,8 +1,10 @@
 const adduser = document.getElementById("adduser-btn")
 const removeuser = document.getElementById("removeuser-btn")
+const resetbtn = document.getElementById("reset-btn")
 const submit = document.getElementById("calculate")
-const inputDiv = document.getElementById("input-div")
-const expenseDiv = document.getElementById("expense-div")
+
+const inputDiv = document.getElementById("newinput-div")
+const expenseDiv = document.getElementById("newexpense-div")
 const resultDiv = document.getElementById("resultdiv")
 const result = document.getElementById("heading3")
 
@@ -33,6 +35,7 @@ let mainarr =[
 ]
 
 function calculate() {
+   console.log("function called")
    if (isupdate) {
       for (i = 0; i < usercount; i++){
          mainarr[i].total = mainarr[i].expense
@@ -48,7 +51,8 @@ function calculate() {
       resultDiv.appendChild(newline);
       newline.innerHTML = "Share is " + share
       console.log("Share is " + share)
-
+      console.log("Usercount is " + usercount)
+      
       for (i = 0; i < usercount; i++) {
          if (mainarr[i].total > share) {
             for (j = 0; j < usercount; j++) {
@@ -94,7 +98,11 @@ document.addEventListener("input", e => {
    if (e.target.matches("input"))
    buttonPressed(e);
 })
-   
+
+function updateusercount() {
+   document.getElementById("usercountdisplay").innerHTML = "Total users are "+ usercount 
+}
+
 function myfunction() {
    isupdate=true
    usercount++
@@ -102,17 +110,16 @@ function myfunction() {
    const newuser = document.createElement("input");
    const newexpense = document.createElement("input");
    
-   newuser.placeholder = "Type Name of User " + usercount;
+   newuser.placeholder = "Enter Name of User " + usercount;
    newuser.id = "user" + usercount;
    
-   newexpense.placeholder = "Enter total indivisual expense";
+   newexpense.placeholder = "Enter total indivisdal expense";
    newexpense.type = "number";
    newexpense.id="expense"+usercount
    
    inputDiv.appendChild(newuser);
    expenseDiv.appendChild(newexpense);
-   
-   document.getElementById("usercountdisplay").innerHTML = "Total users are "+usercount
+   updateusercount()
    resultDiv.innerHTML= ""
 }
 
@@ -124,10 +131,29 @@ function removeuserfn() {
       document.getElementById("expense" + usercount).remove()
       mainarr.pop()
       usercount--
-      console.log(mainarr)
+      //console.log(mainarr)
+      updateusercount()
+      calculate
    }
+}
+
+function resetfn() {
+   isupdate = false
+   document.getElementById("user1").value=""
+   document.getElementById("expense1").value=""
+   document.getElementById("user2").value=""
+   document.getElementById("expense2").value=""
+   for (i = usercount - 1; i >= 2; i--){
+      mainarr.pop();
+   }
+   usercount=2
+   updateusercount()
+   resultDiv.innerHTML = ""  
+   inputDiv.innerHTML=""
+   expenseDiv.innerHTML=""
 }
 
 adduser.addEventListener("click", myfunction)
 submit.addEventListener("click", calculate)
 removeuser.addEventListener("click",removeuserfn)
+resetbtn.addEventListener("click",resetfn)
