@@ -113,7 +113,7 @@ function myfunction() {
    newuser.placeholder = "Enter Name of User " + usercount;
    newuser.id = "user" + usercount;
    
-   newexpense.placeholder = "Enter total indivisdal expense";
+   newexpense.placeholder = "Enter total individual expense";
    newexpense.type = "number";
    newexpense.id="expense"+usercount
    
