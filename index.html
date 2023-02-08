@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <link rel="stylesheet" href="./bill-splitter-style.css" >
+   <link rel="stylesheet" href="./bill-splitter-style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-   <h1 id="heading">Welcome to bill splitter</h1>
-   <h2 id="heading2">Just add expenses done by each user <br>and get detailed breakout</h2>
-   <button id="adduser-btn">Add User +</button>
-   <button id="calculate">calculate</button>
-   <button id="removeuser-btn">Remove User</button>
-   <button id="reset-btn">Reset</button>
-   <br><br>
-   <p id="usercountdisplay">Total users are 2</p>
-   <div id="resultdiv">
-      <p id="heading3"></p>
-   </div>
-   <div id="maininputdiv">
-      <div class="input-div">
-         <input type="text" id="user1" placeholder="Enter Name of User 1">
-         <input type="text" id="user2" placeholder="Enter Name of User 2">
-         <div class="input-div" id="newinput-div"></div>
+   <div class="parent-container">
+      <div class="headings">
+         <h1 id="heading">Welcome to bill splitter</h1>
+         <h2 id="heading2">Just add expenses done by each user <br>and get detailed breakout</h2>
       </div>
-      <div class="expense-div">
-         <input type="number" class="default-expense" id="expense1" placeholder="Enter total individual expense">
-         <input type="number" class="default-expense" id="expense2" placeholder="Enter total individual expense">
-         <div class="expense-div" id="newexpense-div"></div>
+      <div class="btn-div">
+         <button id="adduser-btn">Add User +</button>
+         <button id="calculate">calculate</button>
+         <button id="removeuser-btn">Remove User</button>
+         <button id="reset-btn">Reset</button>
+      </div>
+      <br><br>
+      <p id="usercountdisplay">Total users are 2</p>
+      <div id="resultdiv">
+         <p id="heading3"></p>
+      </div>
+      <div id="maininputdiv">
+         <div class="input-div">
+            <input type="text" id="user1" placeholder="Enter Name of User 1">
+            <input type="text" id="user2" placeholder="Enter Name of User 2">
+            <div class="input-div" id="newinput-div"></div>
+         </div>
+         <div class="expense-div">
+            <input type="number" class="default-expense" id="expense1" placeholder="Enter total individual expense"></>
+            <input type="number" class="default-expense" id="expense2" placeholder="Enter total individual expense"></>
+            <div class="newexpense-div" id="newexpense-div"></div>
+         </div>
       </div>
    </div>
 </body>
 <script src="./bill-splitter-script.js"></script>
-</html>
 
+</html>
