@@ -10,10 +10,12 @@ const result = document.getElementById("heading3")
 
 let resultstring = " "
 let temp = 0 
+let share = 0 
 let tempid = 'demo'
 let usercount=2
 let idvar = 2
 let isupdate = false
+
 
 function demoobj(name, expense1, total1) {
    this.name = name;
@@ -56,7 +58,7 @@ function calculate() {
       for (i = 0; i < usercount; i++) {
          if (mainarr[i].total > share) {
             for (j = 0; j < usercount; j++) {
-               if (mainarr[i].total > share && mainarr[j].total < share) {
+               if (mainarr[i].total > share && mainarr[j].total < share) { //
                   temp = mainarr[i].total - share
                   const newline = document.createElement("p");
                   resultDiv.appendChild(newline);
@@ -142,7 +144,11 @@ function resetfn() {
    document.getElementById("user1").value=""
    document.getElementById("expense1").value=""
    document.getElementById("user2").value=""
-   document.getElementById("expense2").value=""
+   document.getElementById("expense2").value = ""
+   mainarr[0].expense=0
+   mainarr[0].total=0
+   mainarr[1].expense=0
+   mainarr[1].total=0
    for (i = usercount - 1; i >= 2; i--){
       mainarr.pop();
    }
@@ -150,7 +156,8 @@ function resetfn() {
    updateusercount()
    resultDiv.innerHTML = ""  
    inputDiv.innerHTML=""
-   expenseDiv.innerHTML=""
+   expenseDiv.innerHTML = ""
+   console.log(mainarr)
 }
 
 adduser.addEventListener("click", myfunction)

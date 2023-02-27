@@ -1,6 +1,12 @@
 *{
    text-align: center;
 }
+/* .circle{
+   width: 500px;
+   height:500px;
+   border-radius: 100%;
+   background-color:darkorange;
+} */
 .input-div{
    display: flex;
    flex-direction: column;
@@ -37,15 +43,22 @@ body{
 button{
    font-family: 'PT Serif', sans-serif;
    padding: 10px;
-   border-radius: 5px;
+   border-radius: 7px;
    border-width: 1px;
    box-shadow: 1px 1px 3px;
    margin: 3px ;
    text-transform: uppercase;
+   background-color: whitesmoke;
+   size: 18px;
 }
-button:window-inactive{
+/* button:window-inactive{
    background-color:#162719;
    color: #F2E8CF;
+} */
+
+button:active{
+   background-color:rgb(196, 196, 196);
+   color: black;
 }
 
 #maininputdiv{ 

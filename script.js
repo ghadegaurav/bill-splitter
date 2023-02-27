@@ -66,7 +66,7 @@ function calculate() {
          if (mainarr[i].total > share) {
             for (j = 0; j < usercount; j++) {
                //console.log("Second for loop")
-               if (mainarr[i].total > share && mainarr[j].total < share) {
+               if (mainarr[j].total < share) {//mainarr[i].total > share && 
                   //console.log("Second for loop, if ")
                   temp = mainarr[i].total - share
                   if ((mainarr[j].total + temp) > share) {
